@@ -2,7 +2,7 @@
 layout: default
 author: Cameron McKenzie
 title: Introduction to Java Flight Recorder
-blurb: Here's an introduction to Java Flight Recorder and how you can profile the JVM with JDK Mission Control.
+blurb: Here's an introduction to Java Flight Recorder and how to profile the JVM with JFR and JDK Mission Control (JMC).
 ---
 
 
