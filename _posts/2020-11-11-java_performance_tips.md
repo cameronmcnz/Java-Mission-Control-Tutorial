@@ -52,6 +52,7 @@ So there's a. There's a single database somewhere. It might be a huge database a
 
 So here's, what's achievable. The,  the database industry has a nice benchmark, the TPCC one, which would cover the. Stateful globally, consistent transactions. And that's, that's gives you an idea with one box. If that database is based on one box, you can have 2000 transactions the second where the five second response time for those transactions, that's the kind of, that's the bank account.
 
+<img alt="eclipse jmc garbage collection" class="img-fluid" src="/assets/eclipse-jmc-garbage-collection.png">
 
 ## TPC-C Benchmark
 
@@ -102,6 +103,8 @@ Okay. So the third axis we've done two axes concurrency, data size. They're real
 Stateless can give you faster times,  and you need to be aware of jitter. So a hundred minutes seconds, as I said already, if it's a stateful responsiveness at scale. So I'm talking about at, I'm not talking about one request, I'm talking about hundreds of requests per second. So at scale. 100 milliseconds is achievable,  for a stateful response.
 
 That means that it includes the transaction on the service and the things that you have to watch out for, to avoid that is replacing large data structures. I mean, typically it's reloading an XML config or,  some document, but really it's any large data structure you need to do in place replacement. If you're editing the data and not replace the whole thing, because it's replacing large data structures that really impacts both object creation and garbage collection.
+
+<img alt="eclipse jmc analysis offending monitor" class="img-fluid" src="/assets/eclipse-jmc-analysis-offending-monitor.png">
 
 ## Concurrent Mark Sweep (CMS) collector
 
@@ -211,6 +214,8 @@ So. When it's clearing out survivor space, all the rest will get copied into the
 
 It's an actual copy. It's not just the pointer, readdress. This is quite inefficient. So you don't want a copy objects a lot of time. That is what takes the time and the young generation pause. So,  You don't want to keep doing that. The idea is that if they're going to last too long, then they're probably going to be around for a long, long time.
 
+<img alt="eclipse jmc memory page" class="img-fluid" src="/assets/eclipse-jmc-memory-page.png">
+
 ## Finalize Method
 
 So just throw them over to the old gen the tenured space. This is a quick aside, and there's a finalized method in object. If you don't override it, the JVM knows to ignore it. If you do override it, this is the situation you'll have. You've got all these purple objects are the same inside the instance of the same class, which overrides, finalize all the dead objects should normally the garbage collection, they would all be ignored and we've just got X, Y, and Zed over there.
@@ -232,6 +237,8 @@ So remember what happens is the Eden gets full and then it's emptied out. So you
 So this is a, this is an example of. If you have a quick look at this one, it's a really straightforward example. You see these every hour on the one hour on the two hour, this is long black line. We're doing a full GC every hour. And I've seen actually a lot of applications do this because if you engage the RMI system, even if your application isn't, but something else is it automatically turns on this distributed garbage collection.
 
 Which will force a full GC every hour property to turn it off. Basically you just set, set it, set the time interval for that to be really long, but I've seen a lot of applications where this happening and not people not even realizing because for the most part, it doesn't matter. It's only when you have the pause time targets that it matters.
+
+<img alt="eclipse jmc latency fixed all threads" class="img-fluid" src="/assets/eclipse-jmc-latency-fixed-all-threads.png">
 
 ## Perfect GC
 
@@ -293,6 +300,8 @@ Cause it's the next patch. That's really straightforward. Again, it's a tool you
 
 
 The only standard kind of tool is actually just thread dumps, dumping threads. You just have to not dump too often. And what I mean, there, there are, there's, there's a few other things here. Like there's the J stack minus Sal that gives you actually lock information from the Javi talking current classes.
+
+<img alt="eclipse jmc latency fixed" class="img-fluid" src="/assets/eclipse-jmc-latency-fixed.png">
 
 ## Deadlocks
 
