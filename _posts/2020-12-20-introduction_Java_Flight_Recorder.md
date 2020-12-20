@@ -41,6 +41,8 @@ If you build the open JDK source code. Part of what they did with that is they a
 
 So that's, that's really the history of them, what we've done at as always. Let's take the open source version in Jedi K 11 and back port it into JDK eight so that you can still use them with the Zulu JDK that I'll talk about at the end and use those on a JDK eight application without any problems and without needing a commercial license.
 
+<img src="/assets/jmc-welcome-screen.png" class="img-fluid" alt="JMC Java Mission Control Welcome Screen">
+
 ## Java JVM Flight Recorder and JDK Mission Control
 
 Now, if we look at what flight recorder and mission control actually are and what they do, I put together this diagram to help you understand that essentially flight recorder is a way of, as the name would suggest recording or making available information about what is happening at a very low level within the JVM.
@@ -62,6 +64,8 @@ What mission control is all about is allowing you to take that information and c
 Yeah. Ron time to process lots and lots of individual pieces of data and lots of numbers and things like that. It's about saying, okay, show me a picture, which shows here's how the. Usage of the heat grew over time, his threads that were active at a particular time, what state were they in? All of those things are, I'll show you as we go through the demonstration.
 
 So clearly, as you can see, we have the ability to either use flight recorder as the application is running, or we can create a recording and then later, so let's talk a little, a bit more detail about flight recorder and what it does and how it works. So the first thing is, is the basics of flight recorder.
+
+<img alt="eclipse jmc application outline view hotmethods" class="img-fluid" src="/assets/eclipse-jmc-application-outline-view-hotmethods.png">
 
 ## Profiling with Java Flight Recorder
 
@@ -153,6 +157,8 @@ And then you can get some information about the size of your live sets and the f
 
 You can show different things, but again, we'll see that in the demonstration.
 
+<img alt="eclipse jmc garbage collection" class="img-fluid" src="/assets/eclipse-jmc-garbage-collection.png">
+
 ### Flight Recorder & Mission Control Rules
 
 Mission control rules. This is, this is very useful. It's very powerful feature because often what you might want to do is to have a certain situation where you'd like to gather flight recorded data, but you don't want to be doing that continuously. You also don't want to do it on a timed basis, but what you want to do is have certain things trigger.
@@ -228,6 +234,8 @@ The other thing that I would show on this one is socket IO. And so there's a con
 That's monitoring it. If we were using an application that was maybe a microservice architecture, where you had connections to other,  services that were happening over a network connection, then you could analyze things here. You could see how much data was being moved around and things like that. So that's,  looking at that kind of information.
 
 If we go back to the browser, as I said, the, the virtual machine that's running, the mission control is also. Able to collect data. And in this case, if we look at the flight recorder, that's running a continuous recording of mission control, or actually doing its work, what we can do there is we can actually say, okay, let's dump some recording data from.
+
+<img alt="eclipse jmc memory page" class="img-fluid" src="/assets/eclipse-jmc-memory-page.png">
 
 ### Java Flight Recorder Analysis
 
