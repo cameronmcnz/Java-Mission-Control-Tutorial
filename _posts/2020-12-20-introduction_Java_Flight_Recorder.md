@@ -1,7 +1,7 @@
 ---
 layout: default
 author: Cameron McKenzie
-title: Introduction to Java Flight Recorder
+title: Introduction to Java Flight Recorder Azul
 blurb: Here's an introduction to Java Flight Recorder and how to profile the JVM with JFR and JDK Mission Control (JMC).
 ---
 
@@ -27,17 +27,19 @@ So. Flee the rest of the presentation. We'll explain what you can do and how it 
 
 They've been around for quite a long time, and they were originally developed by the J rocket team and the J rocket team were a team that developed,  not just at the. Flight recorder and mission control,  tools, but also a virtual machine. And this is what Oracle acquired,  through the BA acquisition.
 
+## Why Java Flight Recorder?
+
 And so they acquired all of this technology at the same time. And really the idea behind flight recorder and mission control was to help in the development of the JVM itself because the developers need to understand, well, what is the JVM doing? Where are the places where there might be issues in terms of performance?
 
-So they needed some kind of tool to look at that what they discovered was that. By doing that, they could also get a lot of information about how the application that was running on top of the JVM was also performing now. Clearly Oracle acquired sun Microsystems,  back in 2010. And at that point they rebranded flight recorder, mission control, and then they literally just added the word job in front of them.
+So they needed some kind of tool to look at that what they discovered was that. By doing that, they could also get a lot of information about how the application that was running on top of the JVM was also performing now. Clearly Oracle acquired sun Microsystems,  back in 2010. And at that point they rebranded flight recorder, mission control, and then they literally just added the word Java in front of them.
 
-So we've got Java flight recorder, job, Michigan control more recently, what Oracle have decided to do is to contribute this as. Open source to the open JDK project prior to open JDK 11, these were available in the Oracle JDK, but they were commercial features and that meant you needed to switch them on explicitly.
+So we've got Java flight recorder, Java, Mission control more recently, what Oracle have decided to do is to contribute this as. Open source to the open JDK project prior to open JDK 11, these were available in the Oracle JDK, but they were commercial features and that meant you needed to switch them on explicitly.
 
 And if you wanted to use them for development and protesting, that was okay. They were free. But if you wanted to use them in production, then you would need a commercial license for that part of what Oracle has done. More recently in terms of JDK 11 is to have convergence between the Oracle JDK and the open JDK.
 
 Half of that was removing certain features. Things like the browser plugin, things like Java web start. But also what they've done is taken a lot of these commercial features as flight recorder, mission control, application, class day sharing, and contributed them to the open JDK project. So now functionally, there's no difference between what you would get as the Oracle JDK and what you get.
 
-If you build the open JDK source code. Part of what they did with that is they also rebranded them because Oracle have the, the job of trademark and they're very protective of that. And they decided that rather than calling them Java flight recorder and Java mission control, we now start calling JDK flight recorder and JD mission control.
+If you build the open JDK source code. Part of what they did with that is they also rebranded them because Oracle have the, the Java of trademark and they're very protective of that. And they decided that rather than calling them Java flight recorder and Java mission control, we now start calling JDK flight recorder and JD mission control.
 
 So that's, that's really the history of them, what we've done at as always. Let's take the open source version in Jedi K 11 and back port it into JDK eight so that you can still use them with the Zulu JDK that I'll talk about at the end and use those on a JDK eight application without any problems and without needing a commercial license.
 
@@ -55,7 +57,7 @@ So you can also get a lot of information about the state of the individual threa
 
 And you can see which version of the operating system you're using, what environment parameters of being set, things like that. The information that the flight recorder gathers can be handled in one of two ways. Now, if you want to, you can create a recording of that and write it to disk. So you can create a file, which contains all of the information.
 
-Alternatively, you can take that information in effectively real time. As the application is running, as the JVM is doing its work, and you can feed that into mission control. And Michigan control, as you can see, can either take the live data from flight recorder, or it can read the information from a previous recording.
+Alternatively, you can take that information in effectively real time. As the application is running, as the JVM is doing its work, and you can feed that into mission control. And Mission control, as you can see, can either take the live data from flight recorder, or it can read the information from a previous recording.
 
 ## Visual Java Profiler
 
@@ -69,7 +71,7 @@ So clearly, as you can see, we have the ability to either use flight recorder as
 
 ## Profiling with Java Flight Recorder
 
-And what flight recorder is, is all about is, or as I've already explained to some degree is profiling an event collection. And it's about getting the information that's right at the low level of the JVM. Okay. A lot of tools, interface with the JVM, through the job of management extensions, and they're able to get certain pieces of information, but flight recorder, because it's built into the JVM is able to use the very low level information that is actually gathered by the JVM itself in order to do its own work.
+And what flight recorder is, is all about is, or as I've already explained to some degree is profiling an event collection. And it's about getting the information that's right at the low level of the JVM. Okay. A lot of tools, interface with the JVM, through the Java of management extensions, and they're able to get certain pieces of information, but flight recorder, because it's built into the JVM is able to use the very low level information that is actually gathered by the JVM itself in order to do its own work.
 
 So really we're just leveraging the collection of data that is already happening within the JVM to make that information available externally. That's very important because it enables us to do a certain number of things.  one of the things that often is a problem. With having tools that analyze how an application is working is you get what's called the observability effect.
 
@@ -191,7 +193,7 @@ Just to sort of summarize again, the flight recorder of mission control aspects.
 
 ### Flight Recorder Performance Analysis
 
-As I said, less than 1% typically,  impact on performance. It's very flexible in terms of how you can use it. You can use it from Michigan and control. You can set things on the command line. You can use J command if you don't want to use mission control, or if you want to do it through a command line.
+As I said, less than 1% typically,  impact on performance. It's very flexible in terms of how you can use it. You can use it from Mission and control. You can set things on the command line. You can use J command if you don't want to use mission control, or if you want to do it through a command line.
 
 Yeah. It's another nice feature about this is if you're using an application that's been provided to you by an ISV, then you can say, okay, something's maybe not working in quite the way I want it to in performance, you can use flight recorder, mission control. You can dump. , recording of how your application's working on your machine and what it's doing.
 
